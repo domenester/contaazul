@@ -1,0 +1,52 @@
+{
+  "name": "contaazul",
+  "version": "0.0.0",
+  "description": "Use services from contaazul",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run build && NODE_ENV=test ava --serial",
+    "babel": "babel-node index.js",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && babel src --out-dir dist --copy-files",
+    "babel-debug": "babel-node index.js --debug"
+  },
+  "author": "Diogo Domene",
+  "license": "ISC",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.8.2",
+    "nyc": "^11.8.0"
+  },
+  "dependencies": {
+    "joi": "^13.1.2",
+    "moment": "^2.22.1",
+    "querystring": "^0.2.0",
+    "request": "^2.87.0"
+  },
+  "ava": {
+    "files": [
+      "dist/**/*.spec.js"
+    ],
+    "source": [
+      "**/*.{js}"
+    ],
+    "failFast": true,
+    "tap": false,
+    "inherit": false,
+    "compileEnhancements": true,
+    "verbose": true,
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
+}
