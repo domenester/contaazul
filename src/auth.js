@@ -27,11 +27,9 @@ class ContaAzulAuth {
         })}`;
     }
 
-    async getTokens(req) {
-        const code = req.query.code || null;
-        const state = req.query.state || null;
-
-        if (!state || state !== this.state) throw new Error('ContaAzul state not valid');
+    async getTokens(code, state) {
+        if (!code) throw new Error('Code invalid');
+        if (!state || state !== this.state) throw new Error('State invalid');
 
         const authOptions = helpers.request.optionsAuth({
             code,
@@ -48,8 +46,8 @@ class ContaAzulAuth {
         return tokens;
     }
 
-    async refreshToken(req) {
-        const refreshToken = req.query.refresh_token;
+    async refreshToken(refreshToken) {
+        if (!refreshToken) throw new Error('refreshToken invalid');
 
         const authOptions = helpers.request.optionsAuth({
             grant_type: 'refresh_token',
