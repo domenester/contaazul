@@ -1,0 +1,7 @@
+{
+    "path": {
+        "url": "https://api.contaazul.com/v1",
+        "authorize": "https://api.contaazul.com/auth/authorize",
+        "oauth": "https://api.contaazul.com/oauth2/token"
+    }    
+}
