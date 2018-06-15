@@ -1,20 +1,10 @@
-import querystring from 'querystring';
-import api from './api';
+import ContaAzulApi from './api';
 
-class ContaAzulServices {
-    async list(accessToken) {
-        const list = await api.trigger('GET', '/services', accessToken);
-        return list;
-    }
-
-    async getByFilter(accessToken, filter) {
-        const list = await api.trigger(
-            'GET',
-            `/services?${querystring.stringify(filter)}`,
-            accessToken,
-        );
-        return list;
+class ContaAzulServices extends ContaAzulApi {
+    constructor(url) {
+        super();
+        this.url = url;
     }
 }
 
-export default new ContaAzulServices();
+export default new ContaAzulServices('/services');

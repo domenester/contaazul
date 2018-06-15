@@ -1,15 +1,10 @@
-import api from './api';
+import ContaAzulApi from './api';
 
-class ContaAzulCustomers {
-    async list(accessToken) {
-        const list = await api.trigger('GET', '/customers', accessToken);
-        return list;
-    }
-
-    async create(costumer, accessToken) {
-        const create = await api.trigger('GET', '/sales', accessToken, costumer);
-        return create;
+class ContaAzulCustomers extends ContaAzulApi {
+    constructor(url) {
+        super();
+        this.url = url;
     }
 }
 
-export default new ContaAzulCustomers();
+export default new ContaAzulCustomers('/customers');
