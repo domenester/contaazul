@@ -7,7 +7,6 @@ class ContaAzulApi {
             request(
                 helpers.request.options(method, path, accessToken, JSON.stringify(data)),
                 (err, res, body) => {
-                    if (method === 'POST') console.log('e', err, res);
                     if (err || res.statusCode !== 200) reject(err);
                     else resolve(body);
                 },

@@ -25,7 +25,6 @@
 //         const tokens = await contaazul.auth.getTokens(req.query.code, req.query.state);
 //         console.log("tokens", tokens);
 //         await writeFile('tokens.json', JSON.stringify(tokens), 'utf8');
-        
 //         if (tokens.access_token) {
 //             //const salesList = await contaazul.services.sales.list(tokens.access_token);
 //             const servicesList = await contaazul.services.services.list(
@@ -63,7 +62,7 @@
 //             // console.dir(customersList, {depth: null, colors: true});
 //             // console.dir(salesList, {depth: null, colors: true});
 //             console.dir({}, {depth: null, colors: true});
-//         }     
+//         }
 //         res.send(tokens);
 //     } catch (err) {
 //         console.log(err);
@@ -75,11 +74,10 @@
 //     try {
 //         const tokenFileContent = JSON.parse( (await readFile('tokens.json')).toString() );
 //         const newAccesToken = await contaazul.auth.refreshToken(tokenFileContent.refresh_token);
-        
 //         await writeFile('tokens.json', JSON.stringify(newAccesToken), 'utf8');
 
 //         const salesList = await contaazul.services.sales.list(newAccesToken.access_token);
-//         const servicesList = await contaazul.services.services.list(newAccesToken.access_token);        
+//         const servicesList = await contaazul.services.services.list(newAccesToken.access_token);
 //         const saleCreated = await contaazul.services.sales.create(
 //             newAccesToken.access_token,
 //             {
@@ -108,7 +106,7 @@
 //                 },
 //                 "notes": "Sale made by noon"
 //               }
-//         )        
+//         )
 //         console.dir(saleCreated, {depth: null, colors: true});
 //         console.dir(servicesList);
 //         res.send(servicesList);
